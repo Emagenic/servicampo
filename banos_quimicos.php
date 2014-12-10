@@ -10,29 +10,30 @@
 </script>
 <?php include("Conexion.php"); 
 $listado = "select * from inicio  ";
-	$sentencia = mysql_query($listado,$conn);
-	if($rs=mysql_fetch_array($sentencia,$mibase)){
-		$titulo_inicio = str_replace("\r\n","<br>",$rs["titulo_inicio"]); 
-		$descripcion_inicio = str_replace("\r\n","<br>",$rs["descripcion_inicio"]);
-		$titulo_destacado1_inicio = str_replace("\r\n","<br>",$rs["titulo_destacado1_inicio"]); 
-		$descripcion_destacado1_inicio = str_replace("\r\n","<br>",$rs["descripcion_destacado1_inicio"]);
-		$titulo_destacado2_inicio = str_replace("\r\n","<br>",$rs["titulo_destacado2_inicio"]); 
-		$descripcion_destacado2_inicio = str_replace("\r\n","<br>",$rs["descripcion_destacado2_inicio"]);
-		$titulo_destacado3_inicio = str_replace("\r\n","<br>",$rs["titulo_destacado3_inicio"]); 
-		$descripcion_destacado3_inicio = str_replace("\r\n","<br>",$rs["descripcion_destacado3_inicio"]);
+  $sentencia = mysql_query($listado,$conn);
+  if($rs=mysql_fetch_array($sentencia,$mibase)){
+    $titulo_inicio = str_replace("\r\n","<br>",$rs["titulo_inicio"]); 
+    $descripcion_inicio = str_replace("\r\n","<br>",$rs["descripcion_inicio"]);
+    $titulo_destacado1_inicio = str_replace("\r\n","<br>",$rs["titulo_destacado1_inicio"]); 
+    $descripcion_destacado1_inicio = str_replace("\r\n","<br>",$rs["descripcion_destacado1_largo"]);
+    $titulo_destacado2_inicio = str_replace("\r\n","<br>",$rs["titulo_destacado2_inicio"]); 
+    $descripcion_destacado2_inicio = str_replace("\r\n","<br>",$rs["descripcion_destacado2_largo"]);
+    $titulo_destacado3_inicio = str_replace("\r\n","<br>",$rs["titulo_destacado3_inicio"]); 
+    $descripcion_destacado3_inicio = str_replace("\r\n","<br>",$rs["descripcion_destacado3_largo"]);
 
-	}
+  }
 ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arriendo Baños quimicos - Servicampo</title>
+    <title>Arriendos de Baños Químicos</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link href="css/movil.css" media="screen, projection" rel="stylesheet" type="text/css">
     <link href="css/estilo.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/secciones.css">
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="js/jquery.glide.min.js"></script>
     <script type="text/javascript" src="js/responsiveCarousel.min.js"></script>
@@ -61,29 +62,24 @@ $listado = "select * from inicio  ";
               </li>
               <li><a href="#">SERVICIOS</a>
                 <ul>
-                <?php
+                  <?php
 		$listado = "select * from  servicio";
 		$sentencia = mysql_query($listado,$conn);
 		while($rs=mysql_fetch_array($sentencia,$mibase)){
 		?>
             <li><a href="detalleservicio.php?id=<?php echo $rs["id"]; ?>"><?php echo $rs["titulo"]; ?></a></li>
 		<?php } ?>
-                
-                  
-                  
                 </ul>
               </li>
               <li><a href="#">BAÑOS</a>
                 <ul>
-                <?php
+                  <?php
     	$listado = "select * from  producto";
 		$sentencia = mysql_query($listado,$conn);
 		while($rs=mysql_fetch_array($sentencia,$mibase)){
 	  	?>  
             <li><a href="detalleproducto.php?id=<?php echo $rs["id"]; ?>"><?php echo $rs["titulo"]; ?></a></li>
          <?php } ?>
-                  
-                  
                 </ul>
               </li>
               <li><a href="#">CLIENTES</a>
@@ -102,139 +98,24 @@ $listado = "select * from inicio  ";
       </div>
     </div>
 
-    <!-- INICIO SLIDE --> 
-    <div id="w">
-      <div class="slider">
-        <ul class="slides">
-          <li class="slide">
-            <figure>
-              <figcaption>
-                <h1>ARRIENDO DE BAÑOS QUÍMICOS</h1>
-                <p>Desde sus inicios, Servicampo a contado con el servicio de mantención y arriendo de baños químicos, enfocados principalmente al sector agrícola y en la sexta región de nuestro país.</p>
-                <a href="noticias.php">Noticias</a>
-              </figcaption>
-              <img src="imagenes/slide/1.jpg" alt="dribbble witches">
-            </figure>
-          </li>
-          <li class="slide">
-            <figure>
-              <figcaption>
-                <h2>ARRIENDO DE BAÑOS QUÍMICOS</h2>
-                <p>Desde sus inicios, Servicampo a contado con el servicio de mantención y arriendo de baños químicos, enfocados principalmente al sector agrícola y en la sexta región de nuestro país.</p>
-                <a href="noticias.php">Noticias</a>
-              </figcaption>
-              <img src="imagenes/slide/2.jpg" alt="searing mountain illustration">
-            </figure>
-          </li>
-          <li class="slide">
-            <figure>
-              <figcaption>
-                <h2>ARRIENDO DE BAÑOS QUÍMICOS</h2>
-                <p>Desde sus inicios, Servicampo a contado con el servicio de mantención y arriendo de baños químicos, enfocados principalmente al sector agrícola y en la sexta región de nuestro país.</p>
-                <a href="noticias.php">Noticias</a>
-              </figcaption>
-              <img src="imagenes/slide/3.jpg" alt="taipei fireworks">
-            </figure>
-          </li>
-        </ul>
-      </div>
+    <div class="cont">
+      <article>
+        <div class="contenido_noticia">
+
+        <div class="noticias">
+          <figure>
+            <img src="imagenes/destacados/2.jpg">
+          </figure>  
+          <div class="contenido_noticias">   
+            <h4><?php echo $titulo_destacado2_inicio; ?></h4>     
+            <p><?php echo $descripcion_destacado2_largo; ?><p>
+
+            <a href="index.php">VOLVER</a>
+          </div> 
+        </div>
+
+      </article>
     </div>
-<!-- FIN SLIDE -->
-
-    <article>
-      <div class="contenido_inicio">
-        <h3><?php echo $titulo_inicio; ?></h3>
-        <p><?php echo $descripcion_inicio; ?></p>
-      </div>
-      <figure>
-        <img src="imagenes/inicio.jpg">
-      </figure>
-    </article>
-
-    <aside>
-      <div class="texto_destacados">
-        <h4>SERVICIOS DESTACADOS</h4>
-        <p>Servicampo a contado con el servicio de mantención y arriendo de baños químicos, enfocados
-        principalmente al sector agrícola y en la sexta región de nuestro país.</p> 
-      </div>
-      <div class="destacados">
-        <div class="destacados_int">
-
-          <div class="servicio">
-            <div class="icono"></div>
-            <h3><?php echo $titulo_destacado1_inicio; ?></h3>
-            <p><?php echo $descripcion_destacado1_inicio; ?></p>
-            <a href="limpieza_fosas.php">Ver</a>
-          </div>
-
-          <div class="servicio">
-            <div class="icono2"></div>
-            <h3><?php echo $titulo_destacado2_inicio; ?></h3>
-            <p><?php echo $descripcion_destacado2_inicio; ?></p>
-            <a href="banos_quimicos.php">Ver</a>
-          </div>
-
-          <div class="servicio">
-            <div class="icono3"></div>
-            <h3><?php echo $titulo_destacado3_inicio; ?></h3>
-            <p><?php echo $descripcion_destacado3_inicio; ?></p>
-            <a href="planta_tratamiento.php">Ver</a>
-          </div>
-        </div>
-      </div>
-
-    </aside>
-
-    <nav class="slidernav">
-    <div id="navbtns" class="clearfix">
-      <a href="#" class="previous"><img src="imagenes/img/izq.png"></a>
-      <a href="#" class="next"><img src="imagenes/img/der.png"></a>
-    </div>
-  </nav>
-  <div id="z">
-    <div class="crsl-items" data-navigation="navbtns">
-      <div class="crsl-wrap">
-<?php
-	$listado = "select * from  servicio";
-	$sentencia = mysql_query($listado,$conn);
-	while($rs=mysql_fetch_array($sentencia,$mibase)){
-?>
-        <!-- post #1 -->
-        <div class="crsl-item">
-            <img src="imagenes/img/<?php echo $rs["id"]; ?>.jpg">
-          
-          <h3><?php echo $rs["titulo"]; $nombreurl = str_replace(" ", "-", $rs["titulo"]); ?></h3>
-          
-          <p><?php $texto= str_replace("\r\n","<br>",$rs["descripcion"]); echo(substr($texto,0,250));	 ?></p>
-          
-          <a href="detalleservicio.php?id=<?php echo $rs["id"]; ?>">VER MÁS</a>
-        </div>
-        <!-- post #1 -->
-<?php } ?>
-
-<?php
-  $listado = "select * from  producto";
-  $sentencia = mysql_query($listado,$conn);
-  while($rs=mysql_fetch_array($sentencia,$mibase)){
-?>
-        <!-- post #2 -->
-        <div class="crsl-item">
-            <img src="imagenes/img/<?php echo $rs["id"]; ?>.jpg">
-          
-          <h3><?php echo $rs["titulo"]; $nombreurl = str_replace(" ", "-", $rs["titulo"]); ?></h3>
-          
-          <p><?php $texto= str_replace("\r\n","<br>",$rs["descripcion"]); echo(substr($texto,0,250));  ?></p>
-          
-          <a href="detalleproducto.php?id=<?php echo $rs["id"]; ?>">VER MÁS</a>
-        </div>
-        <!-- post #2 -->
-<?php } ?>
-       
-
-        
-      </div><!-- @end .crsl-wrap -->
-    </div><!-- @end .crsl-items -->
-  </div><!-- @end #z -->
 
     <!-- footer -->
     <footer>
@@ -264,7 +145,7 @@ $listado = "select * from inicio  ";
         <div class="bloque2">
           <div class="contenido1">
             <h2>Productos</h2>
-        <?php
+            <?php
     	$listado = "select * from  producto";
 		$sentencia = mysql_query($listado,$conn);
 		while($rs=mysql_fetch_array($sentencia,$mibase)){
@@ -382,5 +263,16 @@ $listado = "select * from inicio  ";
       });
     });
     </script>
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+<script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+</script>
   </body>
 </html>

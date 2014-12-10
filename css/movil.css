@@ -214,8 +214,52 @@ aside .destacados .destacados_int .servicio .icono{
   -ms-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
 }
+aside .destacados .destacados_int .servicio .icono2{
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-image: url(../imagenes/iconos/2_off.png);
+  background-size: cover;
+  height: 200px;
+  margin: 0 auto 30px auto;
+  width: 204px;
+
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+aside .destacados .destacados_int .servicio .icono3{
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-image: url(../imagenes/iconos/3_off.png);
+  background-size: cover;
+  height: 200px;
+  margin: 0 auto 30px auto;
+  width: 204px;
+
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
 aside .destacados .destacados_int .servicio .icono:hover{
   background-image: url(../imagenes/iconos/1_on.png);
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+aside .destacados .destacados_int .servicio .icono2:hover{
+  background-image: url(../imagenes/iconos/2_on.png);
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+aside .destacados .destacados_int .servicio .icono3:hover{
+  background-image: url(../imagenes/iconos/3_on.png);
   -webkit-transition: all .5s ease-in-out;
   -moz-transition: all .5s ease-in-out;
   -ms-transition: all .5s ease-in-out;
@@ -669,7 +713,8 @@ footer .contenido_footer .bloque3 .contenido4 a {
   display: block;
   margin: -170px auto 30px auto;
   max-width: 100%;
-  min-width: 280px;
+  min-height: 180px;
+  height: 180px;
   vertical-align: top;
   z-index: 1;
 }
@@ -714,7 +759,7 @@ footer .contenido_footer .bloque3 .contenido4 a {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   height: 55px;
-  margin: 10% auto 0 auto;
+  margin: 5% auto 0 auto;
   padding: 30px 0 0 0;
   text-align: center;
   text-decoration: none;
