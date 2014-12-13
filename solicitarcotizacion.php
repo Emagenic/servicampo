@@ -88,12 +88,12 @@
         <div class="contenido_inicio">
           <h3>SOLICITAR COTIZACIÓN</h3>
           <h5>Campos Obligatorios *</h5>
-          <form action="index.php" method="post" onSubmit="MM_validateForm('name','','R','message','','R');return document.MM_returnValue;return document.MM_returnValue">
-            <input class="input" name="RazonSocial" type="text" placeholder="Razon Social *"/>
+          <form action="solicitarcotizacion.php" method="post" onSubmit="MM_validateForm('name','','R','message','','R');return document.MM_returnValue;return document.MM_returnValue">
+            <input class="input" name="Empresa" type="text" placeholder="Razon Social *"/>
             <input class="input" name="Rut" type="text" placeholder="Rut *"/>  
             <input class="input" name="Giro" type="text" placeholder="Giro *"/>
-            <input class="input" name="DireccionComercial" type="text" placeholder="Dirección Comercial *"/>
-            <input class="input" name="NombreContacto" type="text" placeholder="Nombre Contacto *"/>
+            <input class="input" name="Direccion" type="text" placeholder="Dirección Comercial *"/>
+            <input class="input" name="Nombre" type="text" placeholder="Nombre Contacto *"/>
             <p class="titulo_select">Comuna *</p>
             <select name="Comuna" id="Comuna" class="select">
               <option value="Cauquenes">Cauquenes</option>
@@ -162,7 +162,7 @@
             </select>
             <input class="input" name="Telefono" type="text" placeholder="Teléfono *"/>
             <input class="input" name="Celular" type="text" placeholder="Celular"/>
-            <input class="input" name="E-Mail" type="text" placeholder="E-Mail *"/>
+            <input class="input" name="mail" type="text" placeholder="E-Mail *"/>
             <p class="titulo_select">Producto / Servicio *</p>
             <select name="Servicio" id="Servicio" class="select">
               <option value="Limpieza de Fosas">Limpieza de Fosas</option>
@@ -333,3 +333,53 @@
     </script>
   </body>
 </html>
+<?php 
+if ($_POST["Enviar"]){
+  
+  
+  $ip = $_SERVER['REMOTE_ADDR']; 
+  $idvar= 0;
+  $listado = "select * from solicitud_cotizacion where ip = '$ip' ";
+  $sentencia = mysql_query($listado,$conn);
+  while($rs=mysql_fetch_array($sentencia,$mibase)){
+    $idvar = $idvar + 1;
+  }
+  $id = "V".$ip."-".$idvar ;
+  $fecha = date("Y-m-d");
+  $insertar="INSERT INTO solicitud_cotizacion (codigo,fecha,Nombre,Empresa,Rut,Comuna,Telefono,Celular,mail,Servicio,Comentarios,ip ) ";
+  $insertar.= "VALUES( '$id',$fecha,'$_POST[Nombre]', '$_POST[Empresa]', '$_POST[Rut]','$_POST[Comuna]', '$_POST[Telefono]',
+   '$_POST[Celular]', '$_POST[mail]', '$_POST[Servicio]', '$_POST[Comentarios]','$ip')";
+  $sentencia=mysql_query($insertar,$conn)or die("Error al grabar : ".mysql_error);
+  
+  $destinatario = "ventas@servicampo.cl";
+  $nombre = "Sistema de cotizaciones";
+  $mail = $_POST["mail"];
+  $consulta = "$_POST[Nombre] acaba de solicitar una cotizacion, para ver el detalle haga clic 
+  <a href=http://www.servicampo.cl/admin/vercotizaciones.php?id=$id>aca";
+  $asunto = "Consulta sitio web"; 
+  $cuerpo = "<table width=100% border=1 cellspacing=0 cellpadding=0>
+  <tr><td>NOMBRE: $nombre</td></tr>
+  <tr><td>TELEFONO: $_POST[Telefono]</td></tr>
+  <tr><td>MAIL: $_POST[mail]</td></tr>
+  <tr><td>CONSULTA: $consulta</td></tr></table>";
+  $headers = "MIME-Version: 1.0\r\n"; 
+  $headers .= "Content-type: text/html; charset=UTF-8\r\n"; 
+  $headers .= "From: $nombre <$mail>\r\n"; 
+  mail($destinatario,$asunto,$cuerpo,$headers);
+  
+  
+  
+  
+  
+  echo "<script> alert('Su solicitud fue enviada correctamente'); </script>";
+  
+  
+  
+  
+  
+  
+  
+  
+  
+}
+?>

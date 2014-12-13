@@ -151,16 +151,20 @@ body,td,th {
           <textarea name="descripcion_destacado3_largo" cols="50" rows="10" class="boton3" id="descripcion_destacado3_largo"><?php echo $rs["descripcion_destacado3_largo"];	 ?> </textarea>
         </span></td>
       </tr>
+       <tr>
+        <td height="269" align="right" valign="top"><div align="right" class="textolink"><a href="../imagenes/Upload_foto.php?id=inicio">Cambiar Imagen</a> &nbsp;Inicio </div></td>
+        <td valign="top"><img src="../imagenes/inicio.jpg" width="320" height="250"  alt=""/></td>
+      </tr>
       <tr>
-        <td height="226" align="right" valign="top"><div align="right" class="textolink"><a href="../imagenes/destacados/Upload_foto.php?id=1">Cambiar Imagen</a> &nbsp;</div></td>
+        <td height="226" align="right" valign="top"><div align="right" class="textolink"><a href="../imagenes/destacados/Upload_foto.php?id=1">Cambiar Imagen</a> &nbsp;Destacado 1 </div></td>
         <td valign="top"><img src="../imagenes/destacados/1.jpg" width="250" height="200"  alt=""/></td>
       </tr>
       <tr>
-        <td height="220" align="right" valign="top"><div align="right" class="textolink"><a href="../imagenes/destacados/Upload_foto.php?id=2">Cambiar Imagen</a> &nbsp;</div></td>
+        <td height="220" align="right" valign="top"><div align="right" class="textolink"><a href="../imagenes/destacados/Upload_foto.php?id=2">Cambiar Imagen</a>&nbsp;Destacado 2</div></td>
         <td valign="top"><img src="../imagenes/destacados/2.jpg" width="250" height="200"  alt=""/></td>
       </tr>
       <tr>
-        <td height="112" align="right" valign="top"><div align="right" class="textolink"><a href="../imagenes/destacados/Upload_foto.php?id=3">Cambiar Imagen</a> &nbsp;</div></td>
+        <td height="112" align="right" valign="top"><div align="right" class="textolink"><a href="../imagenes/destacados/Upload_foto.php?id=3">Cambiar Imagen</a> Destacado 3&nbsp;</div></td>
         <td valign="top"><img src="../imagenes/destacados/3.jpg" width="250" height="200"  alt=""/></td>
       </tr>
       <tr>

@@ -86,18 +86,18 @@
     <div class="cont">
       <article>
         <div class="contenido_inicio">
-          <h3>NOTIFICAR PAGO</h3>
+          <h3>CONFIRMAR PAGO</h3>
           <h5>Campos Obligatorios *</h5>
-          <form action="index.php" method="post" onSubmit="MM_validateForm('name','','R','message','','R');return document.MM_returnValue;return document.MM_returnValue"> 
+          <form action="notificarpago.php" method="post" onSubmit="MM_validateForm('name','','R','message','','R');return document.MM_returnValue;return document.MM_returnValue"> 
             <input class="input" name="Nombre" type="text" placeholder="Nombre *"/>
             <input class="input" name="Apellido" type="text" placeholder="Apellido *"/>
             <input class="input" name="Empresa" type="text" placeholder="Empresa *"/>
             <input class="input" name="Factura" type="text" placeholder="Nº de Factura *"/>  
             <input class="input" name="Telefono" type="text" placeholder="Teléfono *"/>
             <input class="input" name="Celular" type="text" placeholder="Celular"/>
-            <input class="input" name="E-Mail" type="text" placeholder="E-Mail *"/>
+            <input class="input" name="mail" type="text" placeholder="E-Mail *"/>
             <p class="titulo_select">Producto / Servicio *</p>
-            <select name="Servicio" id="Servicio" class="select">
+            <select name="Producto" id="Producto" class="select">
               <option value="Limpieza de Fosas">Limpieza de Fosas</option>
               <option value="Arriendo de Baños Químicos">Arriendo de Baños Químicos</option>
               <option value="Mantención de Baños Químicos">Mantención de Baños Químicos</option>
@@ -271,3 +271,54 @@
     </script>
   </body>
 </html>
+
+<?php 
+if ($_POST["Enviar"]){
+  $ip = $_SERVER['REMOTE_ADDR']; 
+  $idvar= 0;
+  $listado = "select * from pagos where ip = '$ip' ";
+  $sentencia = mysql_query($listado,$conn);
+  while($rs=mysql_fetch_array($sentencia,$mibase)){
+    $idvar = $idvar + 1;
+  }
+  $id = "O".$ip."-".$idvar ;
+  function quitar ($texto) {
+  $texto = str_replace (".", "", $texto);
+  return $texto;
+  }
+  $id = quitar ($id);
+  $nombre_archivo = $id;
+  $destinatario = "ventas@servicampo";
+  $nombre = "Confirmar pagos";
+  $mail = "webmaster@servicampo.cl";
+  $consulta = "$_POST[Nombre] acaba de enviar una confirmacion de pago, para ver el detalle haga clic 
+  <a href=http://www.servicampo.cl/admin/verpago.php?id=$id>aca";
+  $asunto = "Confirmar pago"; 
+  $cuerpo = "<table width=100% border=1 cellspacing=0 cellpadding=0>
+  <tr><td>Nombre: $nombre</td></tr>
+  <tr><td>Comentario: $consulta</td></tr></table>";
+  $headers = "MIME-Version: 1.0\r\n"; 
+  $headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
+  $headers .= "From: $nombre <$mail>\r\n"; 
+  mail($destinatario,$asunto,$cuerpo,$headers);
+  
+  $nombre_archivo = $id.$HTTP_POST_FILES['userfile']['name'];;
+  
+  $tipo_archivo = $HTTP_POST_FILES['userfile']['type']; 
+  $tamano_archivo = $HTTP_POST_FILES['userfile']['size']; 
+  
+    if (move_uploaded_file($HTTP_POST_FILES['userfile']['tmp_name'], $nombre_archivo)){ 
+  $fecha = date("Y-m-d");
+    $insertar="INSERT INTO pagos (codigo, Nombre, Apellido,Empresa,Factura,Telefono,Celular,mail,Producto,Comentarios,ip, 
+    nombrearchivo ) ";
+    $insertar.= "VALUES( '$id','$fecha','$_POST[Nombre]', '$_POST[Apellido]', '$_POST[Empresa]', '$_POST[Factura]',
+     '$_POST[Telefono]',
+    '$_POST[Celular]', '$_POST[mail]', '$_POST[Producto]', '$_POST[Comentarios]','$ip','$nombre_archivo')";
+    $sentencia=mysql_query($insertar,$conn)or die("Error al grabar : ".mysql_error);
+    echo "<script> alert('Su notificacion de pago fue enviada correctamente'); </script>";
+    }else{ 
+      echo "<script> alert('Su notificacion de pago fue enviada pero el archivo adjunto no, envielo cor correo); </script>";
+      echo $id;
+  } 
+}
+?>

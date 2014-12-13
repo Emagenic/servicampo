@@ -48,24 +48,24 @@
               </li>
               <li><a href="#">SERVICIOS</a>
                 <ul>
-                  <?php
-		$listado = "select * from  servicio";
-		$sentencia = mysql_query($listado,$conn);
-		while($rs=mysql_fetch_array($sentencia,$mibase)){
-		?>
+            <?php
+          		$listado = "select * from  servicio";
+          		$sentencia = mysql_query($listado,$conn);
+          		while($rs=mysql_fetch_array($sentencia,$mibase)){
+        		?>
             <li><a href="detalleservicio.php?id=<?php echo $rs["id"]; ?>"><?php echo $rs["titulo"]; ?></a></li>
-		<?php } ?>
+		        <?php } ?>
                 </ul>
               </li>
               <li><a href="#">BAÑOS</a>
                 <ul>
-                  <?php
-    	$listado = "select * from  producto";
-		$sentencia = mysql_query($listado,$conn);
-		while($rs=mysql_fetch_array($sentencia,$mibase)){
-	  	?>  
+            <?php
+    	        $listado = "select * from  producto";
+		          $sentencia = mysql_query($listado,$conn);
+		          while($rs=mysql_fetch_array($sentencia,$mibase)){
+	  	      ?>  
             <li><a href="detalleproducto.php?id=<?php echo $rs["id"]; ?>"><?php echo $rs["titulo"]; ?></a></li>
-         <?php } ?>
+            <?php } ?>
                 </ul>
               </li>
               <li><a href="#">CLIENTES</a>
@@ -98,20 +98,24 @@
           <p><?php echo str_replace("\r\n","<br>",$rs["descripcion"]); } ?></p>
           <a href="imagenes/servicios/<?php echo $_GET["id"]; ?>.pdf" target="new">ver PDF</a>
         </div>
-
         <figure>
           <img src="imagenes/servicios/<?php echo $_GET["id"]; ?>.jpg">
+          
 
+          <div class="galeria">
+          <?php 
+            $listadowww = "select * from  galeria where propiedad = '$rs[id]'";
+            $sentenciawwww = mysql_query($listadowww,$conn);
+            while($rssss=mysql_fetch_array($sentenciawwww,$mibase)){
+          ?>
           <div class="img_chica">
-          <?php
-          $listado = "select * from  galeria_servicio where servicio = '$_GET[servicios]' ";
-			    $sentencia = mysql_query($listado,$conn);
-			    while($rs=mysql_fetch_array($sentencia,$mibase)){?>
-            <a class="fancybox" href="imagenes/galeria/<?php echo $rs["id"]; ?>.jpg" data-fancybox-group="gallery">
-              <img src="imagenes/galeria/<?php echo $rs["id"]; ?>.jpg">
+            <a class="fancybox" href="imagenes/galeria/<?php echo $rssss["id"] ?>.jpg" data-fancybox-group="gallery">
+              <img src="imagenes/galeria/<?php echo $rssss["id"] ?>.jpg">
             </a>
+          </div>
           <?php } ?>
           </div>
+
         </figure>
 
       </article>
@@ -264,7 +268,7 @@
     });
     </script>
 
-  <!-- Add mousewheel plugin (this is optional) -->
+ <!-- Add mousewheel plugin (this is optional) -->
   <script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
 
   <!-- Add fancyBox main JS and CSS files -->
@@ -458,5 +462,15 @@
 
     });
   </script>
+    <style type="text/css">
+    .fancybox-custom .fancybox-skin {
+      box-shadow: 0 0 50px #222;
+    }
+
+    body {
+      
+      margin: 0 auto;
+    }
+  </style>
   </body>
 </html>

@@ -561,6 +561,9 @@ footer .contenido_footer .bloque3 .contenido4 a {
   width: 90%;
   text-align: center;
 }
+.cont .preguntas_frecuentes img {
+  width: 100%;
+}
 .cont .preguntas_frecuentes p {
   color: #666;
   font-family: 'Open Sans', sans-serif;

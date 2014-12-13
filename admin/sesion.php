@@ -39,7 +39,7 @@ if($_POST["Entrar"]){
   <div align="center">
     <table width="226" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td width="80" class="texto" >Usuario</td>
+        <td width="80" class="titulo_texto" >Usuario</td>
         <td width="146"><label>
           <input name="nusuario_txt" type="text" class="textobox"  id="nusuario_txt" size="15" />
         </label></td>
@@ -48,7 +48,7 @@ if($_POST["Entrar"]){
         <td height="12" colspan="2" ></td>
       </tr>
       <tr>
-        <td class="texto" >Password</td>
+        <td class="titulo_texto" >Password</td>
         <td><input name="password_txt" type="password" class="textobox"  id="password_txt" size="15" /></td>
       </tr>
       <tr>
@@ -68,56 +68,56 @@ if($_POST["Entrar"]){
   <p>
     <?php } else  { ?></p>
   <p>&nbsp;</p>
-  <p class="titulo"><strong class="botonera">Usuario</strong>: <?php echo $_SESSION["$nusuario"]; ?></p>
+  <p class="titulo_texto"><strong>Usuario: <?php echo $_SESSION["$nusuario"]; ?></strong></p>
   <p class="titulos">&nbsp;</p>
-  <table width="200" border="1" cellspacing="1" cellpadding="0">
+  <table width="235" border="1" cellspacing="1" cellpadding="0">
     <tr>
-      <td><table width="200" border="0" cellspacing="0" cellpadding="0">
+      <td width="229"><table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td height="30" align="left" bgcolor="#20357D"><div align="center" class="llamegratis"><strong>MENU PRINCIPAL</strong></div></td>
+          <td height="50" align="left" bgcolor="#20357D"><div align="center" class="titulo_admin"><strong>MENU PRINCIPAL</strong></div></td>
         </tr>
         
         <tr>
           <td height="5" align="left" bgcolor="#FFFFFF"></td>
         </tr>
         <tr>
-          <td align="center" bgcolor="#FFFFFF"  class="textolink"><a href="inicio.php" class="textolink">Inicio</a></td>
+          <td height="25" align="center" bgcolor="#FFFFFF"  class="textolink"><a href="inicio.php" class="titulo_texto">Inicio</a></td>
         </tr>
         <tr>
-          <td align="center" bgcolor="#FFFFFF"  class="textolink"><a href="mision.php" class="textolink">Mision</a></td>
+          <td height="25" align="center" bgcolor="#FFFFFF"  class="textolink"><a href="mision.php" class="titulo_texto">Mision</a></td>
         </tr>
         <tr>
-          <td align="center" bgcolor="#FFFFFF"  class="textolink"><a href="cliente.php" class="textolink">Nuestros clientes</a></td>
+          <td height="25" align="center" bgcolor="#FFFFFF"  class="textolink"><a href="cliente.php" class="titulo_texto">Nuestros clientes</a></td>
         </tr>
         <tr>
-          <td align="center" bgcolor="#FFFFFF"  class="textolink"><a href="certificacion.php" class="textolink">Certificaciones</a></td>
+          <td height="25" align="center" bgcolor="#FFFFFF"  class="textolink"><a href="certificacion.php" class="titulo_texto">Certificaciones</a></td>
         </tr>
         <tr>
-          <td height="0" align="center" bgcolor="#FFFFFF"  class="textolink"><span class="textolink"><a href="servicio.php" class="textolink">Servicios</a></span></td>
+          <td height="25" align="center" bgcolor="#FFFFFF"  class="textolink"><span class="titulo_texto"><a href="servicio.php" class="titulo_texto">Servicios</a></span></td>
         </tr>
         <tr>
-          <td align="center" bgcolor="#FFFFFF"  class="textolink"><a href="producto.php" class="textolink">Productos</a></td>
+          <td height="25" align="center" bgcolor="#FFFFFF"  class="textolink"><a href="producto.php" class="titulo_texto">Productos</a></td>
         </tr>
         <tr>
-          <td height="0" align="center" bgcolor="#FFFFFF"  class="textolink"><a href="preguntasfrecuentes.php" class="textolink">Preguntas frecuentes</a></td>
+          <td height="25" align="center" bgcolor="#FFFFFF"  class="textolink"><a href="preguntasfrecuentes.php" class="titulo_texto">Preguntas frecuentes</a></td>
         </tr>
         <tr>
-          <td align="center" bgcolor="#FFFFFF"  class="admin"><span class="textolink"><a href="pie.php" class="textolink">Informacion pie</a></span></td>
+          <td height="25" align="center" bgcolor="#FFFFFF"  class="titulo_texto"><a href="pie.php" class="titulo_texto">Informacion pie</a></td>
         </tr>
         <tr>
-          <td align="center" bgcolor="#FFFFFF"  class="textolink"><a href="noticias.php" class="textolink">Noticias</a></td>
+          <td height="25" align="center" bgcolor="#FFFFFF"  class="textolink"><a href="noticias.php" class="titulo_texto">Noticias</a></td>
         </tr>
         <tr>
-          <td align="center" bgcolor="#FFFFFF"  class="admin"><a href="preguntasfrecuentes.php" class="textolink2">Preguntas frecuentes</a></td>
+          <td height="25" align="center" bgcolor="#FFFFFF"  class="admin"><a href="preguntasfrecuentes.php" class="titulo_texto">Preguntas frecuentes</a></td>
         </tr>
         <tr>
-          <td align="center" bgcolor="#FFFFFF"  class="admin"><a href="solicitudesdecotizacion.php" class="textolink3">Solicitudes de cotizaciones</a></td>
+          <td height="25" align="center" bgcolor="#FFFFFF"  class="admin"><a href="solicitudesdecotizacion.php" class="titulo_texto">Solicitudes de cotizaciones</a></td>
         </tr>
         <tr>
-          <td align="center" bgcolor="#FFFFFF"  class="admin"><a href="ordendecompras.php" class="textolink3">Ordenes de compra</a></td>
+          <td height="25" align="center" bgcolor="#FFFFFF"  class="admin"><a href="ordendecompras.php" class="titulo_texto">Ordenes de compra</a></td>
         </tr>
         <tr>
-          <td align="center" bgcolor="#FFFFFF"  class="admin"><a href="pagos.php" class="textolink3">Notificaciones de pago</a></td>
+          <td height="25" align="center" bgcolor="#FFFFFF"  class="admin"><a href="pagos.php" class="titulo_texto">Notificaciones de pago</a></td>
         </tr>
         <tr>
           <td align="center" bgcolor="#FFFFFF"  class="texto"><a href="galeria_servicios.php" class="textolink3"></a></td>
@@ -126,10 +126,10 @@ if($_POST["Entrar"]){
           <td align="center" bgcolor="#FFFFFF"  class="admin">&nbsp;</td>
         </tr>
         <tr>
-          <td height="20" align="center" bgcolor="#FFFFFF"  class="contacto"><a href="cambiopassword.php" class="textolink" ><strong>Cambio de password</strong></a></td>
+          <td height="20" align="center" bgcolor="#FFFFFF"  class="contacto"><strong><a href="cambiopassword.php" class="titulo_texto" >Cambio de password</a></strong></td>
         </tr>
         <tr>
-          <td height="20" align="center" bgcolor="#FFFFFF" class="textos" ><a href="sesion.php?fun=cerrar" class="textolink" ><strong>Cerrar sesion</span></strong></a></td>
+          <td height="20" align="center" bgcolor="#FFFFFF" class="textos" ><strong><a href="sesion.php?fun=cerrar" class="titulo_texto" >Cerrar sesion</span></a></strong></td>
         </tr>
         
       </table></td>

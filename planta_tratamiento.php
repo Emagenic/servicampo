@@ -15,11 +15,11 @@ $listado = "select * from inicio  ";
     $titulo_inicio = str_replace("\r\n","<br>",$rs["titulo_inicio"]); 
     $descripcion_inicio = str_replace("\r\n","<br>",$rs["descripcion_inicio"]);
     $titulo_destacado1_inicio = str_replace("\r\n","<br>",$rs["titulo_destacado1_inicio"]); 
-    $descripcion_destacado1_inicio = str_replace("\r\n","<br>",$rs["descripcion_destacado1_largo"]);
+    $descripcion_destacado1_largo = str_replace("\r\n","<br>",$rs["descripcion_destacado1_largo"]);
     $titulo_destacado2_inicio = str_replace("\r\n","<br>",$rs["titulo_destacado2_inicio"]); 
-    $descripcion_destacado2_inicio = str_replace("\r\n","<br>",$rs["descripcion_destacado2_largo"]);
+    $descripcion_destacado2_largo = str_replace("\r\n","<br>",$rs["descripcion_destacado2_largo"]);
     $titulo_destacado3_inicio = str_replace("\r\n","<br>",$rs["titulo_destacado3_inicio"]); 
-    $descripcion_destacado3_inicio = str_replace("\r\n","<br>",$rs["descripcion_destacado3_largo"]);
+    $descripcion_destacado3_largo = str_replace("\r\n","<br>",$rs["descripcion_destacado3_largo"]);
 
   }
 ?>

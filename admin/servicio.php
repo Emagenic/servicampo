@@ -166,7 +166,7 @@ while($rs=mysql_fetch_array($sentencia,$mibase)){
                               <td><span class="textolink"><a href="../imagenes/servicios/Upload_foto.php?id=<?php echo $rs["id"]; ?>" class="textolink">Cambiar foto</a></span></td>
                             </tr>
                             <tr>
-                              <td><span class="textolink"><img src="../imagenes/servicios/<?php echo $rs["id"]; ?>.png" width="170"></span></td>
+                              <td><span class="textolink"><img src="../imagenes/servicios/<?php echo $rs["id"]; ?>.jpg" width="170"></span></td>
                             </tr>
                             <tr>
                               <td>&nbsp;</td>
@@ -174,7 +174,7 @@ while($rs=mysql_fetch_array($sentencia,$mibase)){
                           </table></td>
                         </tr>
                         <tr>
-                          <td><a href="galeria_servicios.php?servicios=<?php echo $rs["id"]; ?>" class="textolink3">Galeria Servicios</a></td>
+                          <td> <p class="titulos2"><a href="galeria.php?propiedad=<?php echo $rs["id"]; ?>" class="titulos2">Agregar Galería</a></p></td>
                         </tr>
                         <tr>
                           <td>&nbsp;</td>

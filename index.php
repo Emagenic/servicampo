@@ -109,8 +109,8 @@ $listado = "select * from inicio  ";
           <li class="slide">
             <figure>
               <figcaption>
-                <h1>ARRIENDO DE BAÑOS QUÍMICOS</h1>
-                <p>Desde sus inicios, Servicampo a contado con el servicio de mantención y arriendo de baños químicos, enfocados principalmente al sector agrícola y en la sexta región de nuestro país.</p>
+                <h1><?php echo $titulo_destacado1_inicio; ?></h1>
+                <p><?php echo $descripcion_destacado1_inicio; ?></p>
                 <a href="noticias.php">Noticias</a>
               </figcaption>
               <img src="imagenes/slide/1.jpg" alt="dribbble witches">
@@ -119,8 +119,8 @@ $listado = "select * from inicio  ";
           <li class="slide">
             <figure>
               <figcaption>
-                <h2>ARRIENDO DE BAÑOS QUÍMICOS</h2>
-                <p>Desde sus inicios, Servicampo a contado con el servicio de mantención y arriendo de baños químicos, enfocados principalmente al sector agrícola y en la sexta región de nuestro país.</p>
+                <h2><?php echo $titulo_destacado2_inicio; ?></h2>
+                <p><?php echo $descripcion_destacado2_inicio; ?></p>
                 <a href="noticias.php">Noticias</a>
               </figcaption>
               <img src="imagenes/slide/2.jpg" alt="searing mountain illustration">
@@ -129,8 +129,8 @@ $listado = "select * from inicio  ";
           <li class="slide">
             <figure>
               <figcaption>
-                <h2>ARRIENDO DE BAÑOS QUÍMICOS</h2>
-                <p>Desde sus inicios, Servicampo a contado con el servicio de mantención y arriendo de baños químicos, enfocados principalmente al sector agrícola y en la sexta región de nuestro país.</p>
+                <h2><?php echo $titulo_destacado3_inicio; ?></h2>
+                <p><?php echo $descripcion_destacado3_inicio; ?></p>
                 <a href="noticias.php">Noticias</a>
               </figcaption>
               <img src="imagenes/slide/3.jpg" alt="taipei fireworks">
@@ -247,13 +247,13 @@ $listado = "select * from inicio  ";
           <div class="contenido1">
             <h2><?php echo $rsds["titulo_destacado"]; ?></h2>
             <p> - <?php echo $rsds["contenido_destacado"]; ?></p>
-            <a href="detallenoticia.php?id=<?php echo $rsds["id"] ?>">Ver Más</a>
+            <a href="detallenoticias.php?id=<?php echo $rsds["id"] ?>">Ver Más</a>
           </div>
           <?php if($rsds=mysql_fetch_array($sentenciahjhj,$mibase)){ ?>
           <div class="contenido2">
             <h2><?php echo $rsds["titulo_destacado"]; ?></h2>
             <p><?php echo $rsds["contenido_destacado"]; ?></p>
-            <a href="detallenoticia.php?id=<?php echo $rsds["id"] ?>">Ver Más</a>
+            <a href="detallenoticias.php?id=<?php echo $rsds["id"] ?>">Ver Más</a>
           </div>
           <?php }} ?>
           <div class="contenido3">
