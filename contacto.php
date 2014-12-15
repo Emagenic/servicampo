@@ -87,6 +87,37 @@
       <article>
         <div class="contenido_inicio">
           <h3>CONTACTO</h3>
+          <?php 
+if ($_POST["Enviar"]){
+		echo "<p>Su información ha sido enviada de manera satisfactoria. Responderemos a su petición, a la brevedad posible.";
+		echo "<p>Gracias por confiar en nuestro trabajo.</p>";
+	
+	
+	
+		$destinatario = "mseguelm@emagenic.cl";
+		$nombre = $_POST["Nombre"];
+		$telefono = $_POST["Telefono"];
+		$Celular = $_POST["Celular"];
+		$mail = $_POST["Email"];
+		$consulta = $_POST["mensaje"];
+		$asunto = "Consulta sitio web"; 
+		$cuerpo = "<table width=100% border=1 cellspacing=0 cellpadding=0>
+		<tr><td>NOMBRE: $nombre</td></tr>
+		<tr><td>TELEFONO: $telefono</td></tr>
+		<tr><td>Celular: $Celular</td></tr>
+		<tr><td>MAIL: $mail</td></tr>
+		<tr><td>CONSULTA: $consulta</td></tr>
+		</table>";
+		$headers = "MIME-Version: 1.0\r\n"; 
+		$headers .= "Content-type: text/html; charset=utf-8\r\n"; 
+		$headers .= "From: $nombre <$mail>\r\n"; 
+		mail($destinatario,$asunto,$cuerpo,$headers);
+	} else {
+ ?>
+          
+          
+          
+          
           <form action="contacto.php" method="post" onSubmit="MM_validateForm('name','','R','message','','R');return document.MM_returnValue;return document.MM_returnValue">
             <input class="input" name="Nombre" type="text" placeholder="Nombre"/>
             <input name="Email" type="text" class="input" id="Email" placeholder="E-mail"/>  
@@ -95,6 +126,7 @@
             <textarea name="mensaje" id="mensaje" class="mensaje" placeholder="Mensaje"></textarea>
             <input class="enviar" name="Enviar" type="submit" value="Enviar"/>
           </form>
+          <?php } ?>
         </div>
         <figure>
             <a href="imagenes/mapa.jpg" target="new">
@@ -252,29 +284,3 @@
     </script>
   </body>
 </html>
-<?php 
-if ($_POST["Enviar"]){
-	
-		$destinatario = "contacto@servicampo.cl";
-		$nombre = $_POST["Nombre"];
-		$telefono = $_POST["Telefono"];
-		$Celular = $_POST["Celular"];
-		$mail = $_POST["Email"];
-		$consulta = $_POST["mensaje"];
-		$asunto = "Consulta sitio web"; 
-		$cuerpo = "<table width=100% border=1 cellspacing=0 cellpadding=0>
-		<tr><td>NOMBRE: $nombre</td></tr>
-		<tr><td>TELEFONO: $telefono</td></tr>
-		<tr><td>Celular: $Celular</td></tr>
-		<tr><td>MAIL: $mail</td></tr>
-		<tr><td>CONSULTA: $consulta</td></tr>
-		</table>";
-		$headers = "MIME-Version: 1.0\r\n"; 
-		$headers .= "Content-type: text/html; charset=utf-8\r\n"; 
-		$headers .= "From: $nombre <$mail>\r\n"; 
-		mail($destinatario,$asunto,$cuerpo,$headers);
-		echo "<script> alert('Su consulta fue enviada correctamente'); </script>";
-	
-	
-	}
- ?>
