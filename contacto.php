@@ -94,7 +94,7 @@ if ($_POST["Enviar"]){
 	
 	
 	
-		$destinatario = "mseguelm@emagenic.cl";
+		$destinatario = "contacto@servicampo.cl";
 		$nombre = $_POST["Nombre"];
 		$telefono = $_POST["Telefono"];
 		$Celular = $_POST["Celular"];
